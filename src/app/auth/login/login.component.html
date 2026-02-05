@@ -1,0 +1,55 @@
+<div class="login-container">
+  <div class="login-card">
+    <header class="login-header">
+      <h1>Welcome back</h1>
+      <p>Sign in to continue</p>
+    </header>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <!-- Email Input -->
+      <div class="form-group">
+        <label for="email" class="sr-only">Email address</label>
+        <div class="input-wrapper" [class.input-error]="f['email'].invalid && f['email'].touched">
+          <!-- <span class="icon">✉️</span> -->
+          <input type="email" id="email" formControlName="email" placeholder="Email address" autocomplete="email" />
+        </div>
+        <div class="error-feedback" *ngIf="f['email'].invalid && f['email'].touched">
+          <span *ngIf="f['email'].errors?.['required']">Email is required</span>
+          <span *ngIf="f['email'].errors?.['email']">Please enter a valid email</span>
+        </div>
+      </div>
+
+      <!-- Password Input -->
+      <div class="form-group">
+        <label for="password" class="sr-only">Password</label>
+        <div class="input-wrapper" [class.input-error]="f['password'].invalid && f['password'].touched">
+          <!-- <span class="icon">🔒</span> -->
+          <input [type]="showPassword ? 'text' : 'password'" id="password" formControlName="password"
+            placeholder="Password" autocomplete="current-password" />
+          <button type="button" class="toggle-password" (click)="togglePasswordVisibility()"
+            [attr.aria-label]="showPassword ? 'Hide password' : 'Show password'">
+            {{ showPassword ? '👁️' : '👁️‍🗨️' }}
+          </button>
+        </div>
+        <div class="error-feedback" *ngIf="f['password'].invalid && f['password'].touched">
+          <span *ngIf="f['password'].errors?.['required']">Password is required</span>
+          <span *ngIf="f['password'].errors?.['minlength']">Password must be at least 6 characters</span>
+        </div>
+      </div>
+
+      <!-- Forgot Password & Submit -->
+      <div class="form-actions">
+        <a routerLink="#" class="forgot-password">Forgot password?</a>
+
+        <button type="submit" class="btn-primary" [disabled]="loginForm.invalid || isLoading">
+          <span *ngIf="isLoading" class="spinner"></span>
+          {{ isLoading ? 'Signing in...' : 'Sign in' }}
+        </button>
+      </div>
+    </form>
+
+    <footer class="login-footer">
+      <p>Don’t have an account? <a routerLink="#">Create one</a></p>
+    </footer>
+  </div>
+</div>
