@@ -42,8 +42,9 @@ $border-color: #e5e7eb;
   }
 
   .form-group {
-    margin-bottom: 1.25rem;
+    margin-bottom: 2rem;
     text-align: left;
+    position: relative;
   }
 
   .sr-only {
@@ -114,8 +115,12 @@ $border-color: #e5e7eb;
   }
 
   .error-feedback {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
     margin-top: 0.25rem;
-    font-size: 1rem;
+    font-size: 0.875rem;
     color: $error-color;
   }
 
@@ -145,6 +150,7 @@ $border-color: #e5e7eb;
       border-radius: 0.5rem;
       font-size: 1.25rem;
       font-weight: 600;
+      font-family: 'Lato', sans-serif;
       cursor: pointer;
       transition: background-color 0.2s;
       display: flex;
