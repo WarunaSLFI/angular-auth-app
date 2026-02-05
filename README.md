@@ -1,5 +1,7 @@
 # AngularAuthApp
 
+[Live Demo](https://angular-auth-app-pearl.vercel.app/login)
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.2.
 
 ## Development server
